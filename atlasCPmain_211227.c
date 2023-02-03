@@ -21,6 +21,9 @@
 #include    "FunctionRS485_K.h"
 #include    "functionUART24.h"
 
+/*
+ * проверка GitHub
+ */
 UINT8 DirectControl = 1;
 UINT32 tempSN = 0;
 UINT16 CounterDelayWork = 100;
