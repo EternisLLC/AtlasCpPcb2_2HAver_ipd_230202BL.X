@@ -989,137 +989,6 @@ void IndicatorDirection(UINT8 dir){
                 }
 //.................                
             }
-//            if(StatusBU[SelectedDirection].SerialNumber /*&& NewEvent[SelectedDirection]*/){// если в выбранном направлении есть зарегистрированный БУ
-//                if(ConnectBUR[SelectedDirection]){// если соединение установлено
-//                    //  t0 выводим только информацию об автоматике
-//// изм. 01.09.22                    
-//                    switch(StatusBU[SelectedDirection].StatusAuto.StatusAutoByte & 0b11000000){
-//                        case    AUTO:
-////                            printf("t0.pic=28ЪЪЪ"); // подложка зеленая
-//                            while(TxRunRs || TxRunLcd);
-//                            sprintf(LcdBufferData,"page11.t0.pic=28ЪЪЪ"); // подложка зеленая
-//                            printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
-////                            printf("t0.txt=\"АВТОМАТИКА ВКЛЮЧЕНА\"ЪЪЪ");
-//                            while(TxRunRs || TxRunLcd);
-//                            sprintf(LcdBufferData,"page11.t0.txt=\"АВТОМАТИКА ВКЛЮЧЕНА\"ЪЪЪ");
-//                            printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
-//                            break;
-//                        case    LOCK:
-////                            printf("t0.pic=31ЪЪЪ"); // подложка желтая
-//                            while(TxRunRs || TxRunLcd);
-//                            sprintf(LcdBufferData,"page11.t0.pic=31ЪЪЪ"); // подложка желтая
-//                            printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
-////                            printf("t0.txt=\"ПУСК ЗАБЛОКИРОВАН\"ЪЪЪ");
-//                            while(TxRunRs || TxRunLcd);
-//                            sprintf(LcdBufferData,"page11.t0.txt=\"ПУСК ЗАБЛОКИРОВАН\"ЪЪЪ");
-//                            printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
-//                            break;
-//                        case    MANUAL:
-////                            printf("t0.pic=31ЪЪЪ"); // подложка желтая
-////                            printf("t0.txt=\"РЕЖИМ РАБОТЫ РУЧНОЙ\"ЪЪЪ");
-//                            while(TxRunRs || TxRunLcd);
-//                            sprintf(LcdBufferData,"page11.t0.pic=31ЪЪЪt0.txt=\"РЕЖИМ РАБОТЫ РУЧНОЙ\"ЪЪЪ");
-//                            printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
-//                            break;
-//                    }
-//                    // выводим информацию о состгоянии БУР
-//                    if(StatusBU[SelectedDirection].Situation & 0x03){// в направлении есть тревожное состояние 
-////                        printf("t1.pic=35ЪЪЪ"); // подложка красная
-//                        while(TxRunRs || TxRunLcd);
-//                        sprintf(LcdBufferData,"page11.t1.pic=35ЪЪЪ"); // подложка красная
-//                        printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
-//                    }else{
-//                        if((StatusBU[SelectedDirection].FlagErrRoom.ErrByte & 0xFC)/* изм. 25.03.22*/|| (FildFlagsPcb2[SelectedDirection].ByteFlagRoom_Pcb2 & 0x07)){
-////                            printf("t1.pic=34ЪЪЪ"); // подложка желтая
-//                            while(TxRunRs || TxRunLcd);
-//                            sprintf(LcdBufferData,"page11.t1.pic=34ЪЪЪ"); // подложка желтая
-//                            printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
-//                        }else{
-////                            printf("t1.pic=33ЪЪЪ"); // подложка зеленая
-//                            while(TxRunRs || TxRunLcd);
-//                            sprintf(LcdBufferData,"page11.t1.pic=33ЪЪЪ"); // подложка зеленая
-//                            printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
-//                        }
-//                    }
-//                    switch(StatusBU[SelectedDirection].Situation & 0x03){
-//                        case 0:
-//                            sprintf(lcdline,"%s"," ");
-//                            break;
-//                        case 1:
-//                            sprintf(lcdline,"%s","  ВНИМАНИЕ");
-//                            break;
-//                        case 2:
-//                            sprintf(lcdline,"%s","  ПОЖАР");
-//                            break;
-//                        case 3:
-//                            sprintf(lcdline,"%s","  ПУСК");
-//                            break;
-//                    }
-////                    printf("t1.txt=\"%s\\r %s С.Н. %lu\"ЪЪЪ",lcdline,((StatusBU[SelectedDirection].SerialNumber%1000) < 501)? "БУР":"РКН",StatusBU[SelectedDirection].SerialNumber);
-//                    while(TxRunRs || TxRunLcd);
-//                    sprintf(LcdBufferData,"page11.t1.txt=\"%s\\r %s С.Н. %lu\"ЪЪЪ",lcdline,((StatusBU[SelectedDirection].SerialNumber%1000) < 501)? "БУР":"РКН",StatusBU[SelectedDirection].SerialNumber);
-//                    printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
-//                    // выводим информацию о состгоянии БОС
-//                    if(StatusBos[0].AlarmByte){
-//                        // в направлении есть тревожное состояние 
-////                        printf("t2.pic=35ЪЪЪ"); // подложка красная
-//                        while(TxRunRs || TxRunLcd);
-//                        sprintf(LcdBufferData,"page11.t2.pic=35ЪЪЪ"); // подложка красная
-//                        printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
-//                    }else{
-//                        if((StatusBU[SelectedDirection].FlagErrRoom.ErrByte & 0x03) ){
-////                            printf("t2.pic=34ЪЪЪ"); // подложка желтая
-//                            while(TxRunRs || TxRunLcd);
-//                            sprintf(LcdBufferData,"page11.t2.pic=34ЪЪЪ"); // подложка желтая
-//                            printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
-//                        }else{
-////                            printf("t2.pic=33ЪЪЪ"); // подложка зеленая
-//                            while(TxRunRs || TxRunLcd);
-//                            sprintf(LcdBufferData,"page11.t2.pic=33ЪЪЪ"); // подложка зеленая
-//                            printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
-//                        }
-//                    }
-//                    // выводим текст в t1
-//                    
-//                    switch(StatusBos[0].AlarmByte){
-//                        case 0:
-////                            printf("t2.txt=\"  %u БОС\\r  зарегистрированно\"ЪЪЪ",StatusBU[SelectedDirection].QuantityBos);
-//                            while(TxRunRs || TxRunLcd);
-//                            sprintf(LcdBufferData,"page11.t2.txt=\"  %u БОС\\r  зарегистрировано\"ЪЪЪ",StatusBU[SelectedDirection].QuantityBos); 
-//                            printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
-//                            break;
-//                        case 1:
-////                            printf("t2.txt=\"  ВНИМАНИЕ ОТ БОС\"ЪЪЪ");
-//                            while(TxRunRs || TxRunLcd);
-//                            sprintf(LcdBufferData,"page11.t2.txt=\"  ВНИМАНИЕ ОТ БОС\"ЪЪЪ"); 
-//                            printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
-//                            break;
-//                        case 2:
-////                            printf("t2.txt=\"  ПОЖАР ОТ БОС\"ЪЪЪ");
-//                            while(TxRunRs || TxRunLcd);
-//                            sprintf(LcdBufferData,"page11.t2.txt=\"  ПОЖАР ОТ БОС\"ЪЪЪ"); 
-//                            printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
-//                            break;
-//                        case 3:
-////                            printf("t2.txt=\"  ПУСК\"ЪЪЪ");
-//                            while(TxRunRs || TxRunLcd);
-//                            sprintf(LcdBufferData,"page11.t2.txt=\"  ПУСК\"ЪЪЪ"); 
-//                            printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
-//                            break;
-//                    }
-//                }else{
-//                    // если соединения нет
-////                    printf("t0.txt=\"НЕТ ДАННЫХ\"ЪЪЪ");
-//                    while(TxRunRs || TxRunLcd);
-//                    sprintf(LcdBufferData,"page11.t0.txt=\"НЕТ ДАННЫХ\"ЪЪЪ"); 
-//                    printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
-////                    printf("t0.pic=29ЪЪЪ");// подложка серая
-//                    while(TxRunRs || TxRunLcd);
-//                    sprintf(LcdBufferData,"page11.t0.pic=29ЪЪЪ");// подложка серая
-//                    printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
-//                    
-//                }
-//            }
             break;
         case 12:
             if(LcdFlag.NewPage){
@@ -1277,9 +1146,6 @@ void IndicatorDirection(UINT8 dir){
             }
             break;
         case 13:
-//            if(LcdFlag.NewPage){
-//                LcdFlag.NewPage = 0;
-//            }
             DisplayStatusBOS1202(CurrentScreen,1);
             break;
         case 14:
@@ -1983,35 +1849,15 @@ void PrintEventLCD(void) {
             switch(BufferReadEvent.Situation & 0x03){
                 case 0:
                     sprintf(lcdline,"%s","НОРМА");
-//                    if(TempEventRead.classIP < 11){
-//                        sprintf(lcdline,"%s","АУТП НОРМА");
-//                    }else{
-//                        sprintf(lcdline,"%s","СПС НОРМА");
-//                    }
                     break;
                 case 1:
                     sprintf(lcdline,"%s","ВНИМАНИЕ");
-//                    if(TempEventRead.classIP < 11){
-//                        sprintf(lcdline,"%s","АУТП ВНИМАНИЕ");
-//                    }else{
-//                        sprintf(lcdline,"%s","СПС ВНИМАНИЕ");
-//                    }
                     break;
                 case 2:
                     sprintf(lcdline,"%s","ПОЖАР");
-//                    if(TempEventRead.classIP < 11){
-//                        sprintf(lcdline,"%s","АУТП ПОЖАР");
-//                    }else{
-//                        sprintf(lcdline,"%s","СПС ПОЖАР");
-//                    }
                     break;
                 case 3:
                     sprintf(lcdline,"%s","ПУСК");
-//                    if(TempEventRead.classIP < 11){
-//                        sprintf(lcdline,"%s","АУТП ПУСК");
-//                    }else{
-//                        sprintf(lcdline,"%s","СПС ПУСК");
-//                    }
                     break;
                 default:
                     sprintf(lcdline,"%u",BufferReadEvent.Situation);
@@ -2087,12 +1933,6 @@ void PrintEventLCD(void) {
             }else{
                 printf("page8.t3.txt=t3.txt+\"Прибор исправен\"ЪЪЪ");
             }
-//            printf("t3.txt=t3.txt+\" 0x%02X\"ЪЪЪ",BufferReadEvent.ErrByte);
-//// изм. 28.03.22            
-//            if(BufferReadEvent.SerialNumber > 2111000){
-//                printf("t3.txt=t3.txt+\"%02X\"ЪЪЪ",BufferReadEvent.reserv);
-//            }
-////=============            
             break;
         case 5: // изм. 28.01.20
             TempAutoByte.StatusAutoByte = BufferReadEvent.StatusAutoByte;
@@ -2150,10 +1990,6 @@ void PrintEventLCD(void) {
             printf("page8.t3.txt=t3.txt+\"PWR2 %0.2fВ\"ЪЪЪ", tempFloat);
             break;
         case 105:
-//            BufferWriteEvent.SerialNumber = AccessPassword; // новый пароль
-//            pii = (unsigned int*)&OldAccessPassword;        
-//            *pii++ = BufferWriteEvent.IdNet;                // старый пароль
-//            *pii = BufferWriteEvent.QuantityBos;
             OldAccessPassword =  BufferReadEvent.QuantityBos << 8;
             OldAccessPassword = OldAccessPassword + BufferReadEvent.IdNet;
             
@@ -2533,19 +2369,6 @@ void IndicationControl(void){
         LastIntegral = IntegralRegistr.Integral;
         
     }
-//=========    
-//    if(LastIntegral != IntegralRegistr.Integral){
-//        /*отладка*/if(LcdFlag.Debug)xprintf("last %X Integral %X\r",LastIntegral,IntegralRegistr.Integral);
-//        LastIntegral = IntegralRegistr.Integral;
-//        if(LastIntegral){
-//            /*отладка*/if(LcdFlag.Debug)xprintf("sound on\r");
-//            ControlFlagCP.CP_Sound_off = 0;
-//            if(CurrentScreen == 10){
-//                sprintf(LcdBufferData,"page10.t12.pic=57ЪЪЪ");
-//                printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
-//            }
-//        }
-//    }
     Interval._SoundCtrl = 0;
     if(!IntegralRegistr.Integral && !ControlFlagCP.RsBreakLast/* изм. 08.04.22 */&& !ControlFlagCP.ErrorRip/* изм. 13.04.22*/&& !ErrPwr){
         EXT_SOUND = SOUND = 0;
@@ -2816,123 +2639,6 @@ void KeyHandler(void){
     }
     FlagKey.FlagKeyStatus = 0; // обработка кнопок завершена сброс всех флагов
 }
-//void KeyHandler1(void){
-//    if(!FlagKey.FlagKeyStatus)return;
-//    NumberKID = SearchNumberKid();
-//    if(NumberKID > 0 && NumberKID < 11){
-//        if((FlagKey.KeyStartShort || FlagKey.KeyStartLong) && (SelectedDirection > 0 && SelectedDirection < 11)){
-//            switch(CurrentScreen){
-//                default:
-//                    break;
-//
-//                case 11:case 12:case 14:
-//                    printf("t0.txt=\"ОЖИДАНИЕ РЕАКЦИИ\"ЪЪЪ");
-//                    break;
-//                case 13:
-//                    break;
-//            }
-//// КНОПКА ДЕЙСТВУЕТ ТОЛЬКО ЕСЛИ ПРИЛОЖЕН ПРАВИЛЬНЫЙ КЛЮЧ 
-//            if(SelectedDirection > 0 && SelectedDirection < 11){   //ЕСЛИ ВЫБРАНО НАПРАВЛЕНИЕ
-//                TempDirectRs = SelectedDirection; // сохраняем номер направления
-//                TempCommandRs = 7;  // команда старт по направлению обработку в БУ надо прописать
-//                SaveEvent(7); //
-//            }
-//            if(SelectedDirection == 0){ // если ШВ ПУСК обработку в БУ надо прописать
-//                TempCommandRs = 10;  // ШВ старт выполняется толюко если БУ находится в состоняннии > внимания 
-//                SaveEvent(10); //
-//            }
-//            FlagKey.KeyStartShort = 0;
-//            FlagKey.KeyStartLong = 0;
-//    }
-//////+++++++++
-//        if((FlagKey.KeyAutoLong || FlagKey.KeyAutoShort) && (SelectedDirection > 0 && SelectedDirection < 11) ){
-//            switch(CurrentScreen){
-//                default:
-//                    break;
-//                case 11:case 12:case 14:
-//                    printf("t0.txt=\"ОЖИДАНИЕ РЕАКЦИИ\"ЪЪЪ");
-//                    break;
-//                case 13:
-//                    break;
-//            }
-//// КНОПКА ДЕЙСТВУЕТ ТОЛЬКО ЕСЛИ ПРИЛОЖЕН ПРАВИЛЬНЫЙ КЛЮЧ И ВЫБРАНО НАПРАВЛЕНИЕ
-//            TempDirectRs = SelectedDirection; // сохраняем номер направления
-//// изм. 01.09.22
-//            switch(StatusBU[SelectedDirection].StatusAuto.StatusAutoByte & 0b11000000){
-//                case AUTO:
-//                    if(FlagKey.KeyAutoLong){
-//                        /*отладка*/if(LcdFlag.Debug)xprintf("Com 5 key\r");
-//                        TempCommandRs = 5;
-//                        SaveEvent(15); // событие нажата кнока управления автоматикой на КП 
-//                    }
-//                    if(FlagKey.KeyAutoShort){
-//                        /*отладка*/if(LcdFlag.Debug)xprintf("Com 8 key\r");
-//                        TempCommandRs = 8;
-//                        SaveEvent(15); // событие нажата кнока управления автоматикой на КП 
-//                    }
-//                    break;
-//                case MANUAL:
-//                    // формируем команду автоматика заблокирована
-//                    if(FlagKey.KeyAutoLong){
-//                        /*отладка*/if(LcdFlag.Debug)xprintf("Com 5 key\r");
-//                        TempCommandRs = 5;
-//                        SaveEvent(15); // событие нажата кнока управления автоматикой на КП 
-//                    }
-//                    if(FlagKey.KeyAutoShort){
-//                        /*отладка*/if(LcdFlag.Debug)xprintf("Com 9 key\r");
-//                        TempCommandRs = 9;
-//                        SaveEvent(14); // событие нажата кнока управления автоматикой на КП 
-//                    }
-//                    break;
-//                case LOCK:
-//                    // формируем команду автоматика разблокирована
-//                    /*отладка*/if(LcdFlag.Debug)xprintf("Com 4 key\r");
-//                    TempCommandRs = 4;
-//                    SaveEvent(14); // событие нажата кнока управления автоматикой на КП 
-//                    break;
-//            }
-//            FlagKey.KeyAutoLong = FlagKey.KeyAutoShort = 0;
-//        }
-////++++++++        
-//        if(FlagKey.KeySoundLong){  // изм. 25.08.22
-//            if(!FlagKey.KeyReset){ // изм. 13.09.22 
-//                FlagKey.KeyReset = 1;
-//                /*отладка*/if(LcdFlag.Debug)xprintf("Press reset\r");
-//            }    
-//            FlagKey.KeySoundLong = 0;
-//        }
-//        if(FlagKey.KeySoundShort){// изм. 25.08.22
-//            /*отладка*/if(LcdFlag.Debug)xprintf("Press test\r");
-//            if(CurrentScreen == 10 && !IntegralRegistr.IntegralSituation){
-//                // 10.10.22 тест
-//                while(TxRunRs || TxRunLcd);
-//                WaitingScreen = 15;
-//                sprintf(LcdBufferData,"page 15ЪЪЪ");    // переход на стр. тест
-//                printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
-//            }
-//            FlagKey.KeySoundShort = 0;
-//        }
-//    }else{
-//        if(FlagKey.KeySoundLong || FlagKey.KeySoundShort){
-//            ControlFlagCP.CP_Sound_off = !ControlFlagCP.CP_Sound_off;
-//            /*отладка*/if(LcdFlag.Debug)xprintf("Change sound\r");
-//                    // выводим состояние звуковой сигнализации
-//            if(CurrentScreen == 10){
-//                if(ControlFlagCP.CP_Sound_off){
-////                        printf("page10.t12.pic=56ЪЪЪ");
-//                    while(TxRunRs || TxRunLcd);
-//                    sprintf(LcdBufferData,"page10.t12.pic=56ЪЪЪ");
-//                }else{
-//                    while(TxRunRs || TxRunLcd);
-//                    sprintf(LcdBufferData,"page10.t12.pic=57ЪЪЪ");
-//                }
-//                printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
-//            }
-//            FlagKey.KeySoundLong = FlagKey.KeySoundShort = 0;
-//        }
-//        FlagKey.FlagKeyStatus = 0;
-//    }
-//}
 
 unsigned int ReadADC50(unsigned char AN){
     unsigned int    TempResult = 0;

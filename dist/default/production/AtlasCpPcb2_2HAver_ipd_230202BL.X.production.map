@@ -51,7 +51,7 @@ Command:
   dist/default/production/memoryfile.xml \
   --defsym=_APPID_VER_MAJOR=2 \
   --defsym=_APPID_VER_MINOR=11 \
-  --defsym=_APPID_VER_BUILD=5840 \
+  --defsym=_APPID_VER_BUILD=5842 \
   -start-group \
   --library=lega-pic30-elf \
   --library=m-elf \
@@ -2477,21 +2477,21 @@ __CONFIG1
  .debug_abbrev    0x001133        0x16e build/default/production/atlasCPmain_211227.o
  .debug_abbrev    0x0012a1         0x14 build/default/production/ezbl_integration/AtlasCP_pcb2_BOOT_220119.X.merge.o
 
-.debug_line       0x000000       0x1f32
+.debug_line       0x000000       0x1f28
  *(.debug_line)
  .debug_line      0x000000        0x1ff build/default/production/DriverMFRC522cp.o
  .debug_line      0x0001ff         0x1a build/default/production/crc8.o
  .debug_line      0x000219        0x1df build/default/production/driverAt45CP.o
  .debug_line      0x0003f8        0x121 build/default/production/funcia_spi.o
- .debug_line      0x000519        0xad6 build/default/production/functionCP_220419.o
- .debug_line      0x000fef        0x333 build/default/production/functionRS485_K_220118.o
- .debug_line      0x001322        0x181 build/default/production/functionUART24.o
- .debug_line      0x0014a3         0x45 build/default/production/globalVarAtlasCP.o
- .debug_line      0x0014e8        0x1a4 build/default/production/init256GA106AtlasCP.o
- .debug_line      0x00168c        0x158 build/default/production/interruptTimer24.o
- .debug_line      0x0017e4        0x456 build/default/production/terminalCP.o
- .debug_line      0x001c3a        0x297 build/default/production/atlasCPmain_211227.o
- .debug_line      0x001ed1         0x61 build/default/production/ezbl_integration/AtlasCP_pcb2_BOOT_220119.X.merge.o
+ .debug_line      0x000519        0xacc build/default/production/functionCP_220419.o
+ .debug_line      0x000fe5        0x333 build/default/production/functionRS485_K_220118.o
+ .debug_line      0x001318        0x181 build/default/production/functionUART24.o
+ .debug_line      0x001499         0x45 build/default/production/globalVarAtlasCP.o
+ .debug_line      0x0014de        0x1a4 build/default/production/init256GA106AtlasCP.o
+ .debug_line      0x001682        0x158 build/default/production/interruptTimer24.o
+ .debug_line      0x0017da        0x456 build/default/production/terminalCP.o
+ .debug_line      0x001c30        0x297 build/default/production/atlasCPmain_211227.o
+ .debug_line      0x001ec7         0x61 build/default/production/ezbl_integration/AtlasCP_pcb2_BOOT_220119.X.merge.o
 
 .debug_frame      0x000000       0x1cb8
  *(.debug_frame)
@@ -2580,7 +2580,7 @@ __CONFIG1
                   0x0000f8         0x18 build/default/production/ezbl_integration/AtlasCP_pcb2_BOOT_220119.X.merge.o
                     0x0002                  _APPID_VER_MAJOR = 0x2
                     0x000b                  _APPID_VER_MINOR = 0xb
-                    0x16d0                  _APPID_VER_BUILD = 0x16d0
+                    0x16d2                  _APPID_VER_BUILD = 0x16d2
 START GROUP
 LOAD c:/program files (x86)/microchip/xc16/v1.35/bin/bin/../../lib\liblega-pic30-elf.a
 LOAD c:/program files (x86)/microchip/xc16/v1.35/bin/bin/../../lib\libm-elf.a
