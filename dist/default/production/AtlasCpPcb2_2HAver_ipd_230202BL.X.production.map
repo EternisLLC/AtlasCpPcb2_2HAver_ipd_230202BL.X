@@ -51,7 +51,7 @@ Command:
   dist/default/production/memoryfile.xml \
   --defsym=_APPID_VER_MAJOR=2 \
   --defsym=_APPID_VER_MINOR=11 \
-  --defsym=_APPID_VER_BUILD=5842 \
+  --defsym=_APPID_VER_BUILD=5844 \
   -start-group \
   --library=lega-pic30-elf \
   --library=m-elf \
@@ -2580,7 +2580,7 @@ __CONFIG1
                   0x0000f8         0x18 build/default/production/ezbl_integration/AtlasCP_pcb2_BOOT_220119.X.merge.o
                     0x0002                  _APPID_VER_MAJOR = 0x2
                     0x000b                  _APPID_VER_MINOR = 0xb
-                    0x16d2                  _APPID_VER_BUILD = 0x16d2
+                    0x16d4                  _APPID_VER_BUILD = 0x16d4
 START GROUP
 LOAD c:/program files (x86)/microchip/xc16/v1.35/bin/bin/../../lib\liblega-pic30-elf.a
 LOAD c:/program files (x86)/microchip/xc16/v1.35/bin/bin/../../lib\libm-elf.a
