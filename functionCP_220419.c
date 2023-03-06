@@ -732,10 +732,16 @@ void PrintDirectionPage10(UINT8 dir){
                 // изм. 02.08.21 было SetButtonFont(MAIN_MENU, dir, BLACK, 6);
                 SetButtonFont(MAIN_MENU, dir, BLACK, 3);
                 UINT16 tempCounterDelay = CounterDelayStart[dir];/* изм. 29.08.22 + CounterDelayDoor[dir];*/
-//                printf("page10.b%u.txt=\"%u\"ЪЪЪ", dir, tempCounterDelay); // печатаем время задержки пуска
-                while(TxRunRs || TxRunLcd);
-                sprintf(LcdBufferData,"page10.b%u.txt=\"%u\"ЪЪЪ", dir, tempCounterDelay); // печатаем время задержки пуска
-                printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
+                if(ClassAlgoritm[dir] < 11){
+                    while(TxRunRs || TxRunLcd);
+                    sprintf(LcdBufferData,"page10.b%u.txt=\"%u\"ЪЪЪ", dir, tempCounterDelay); // печатаем время задержки пуска
+                    printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
+                    SetButtonFont(MAIN_MENU, dir, BLACK, 6);
+                }else{
+                    while(TxRunRs || TxRunLcd);
+                    sprintf(LcdBufferData,"page10.b%u.txt=\"%u\"ЪЪЪ", dir, StatusBU[dir].Direct); // печатаем номер помещения 
+                    printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
+                }
                 // конец изм. 02.08.21
                 break;
             case 3: // ситуация пуск
