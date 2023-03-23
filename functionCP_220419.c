@@ -1499,6 +1499,10 @@ void DisplayStatusBOS1202(unsigned char page,UINT16 deviceNumber){
             LcdFlag.HandUp = 1;
         }
         LcdFlag.NewPage = 0;
+        if(CurrentScreen == 20){
+            sprintf(LcdBufferData,"vis t2,1ЪЪЪ");
+            printf("%s",LcdBufferData);
+        }
         return;
     }
     /*отладка*/if(LcdFlag.Debug)xprintf("IndexBos = %u\r",IndexBos);
@@ -1580,16 +1584,15 @@ void PrintStatusBosNew(unsigned char page,unsigned int index) {
             sprintf(LcdBufferData,"page%u.t6.bco=%uЪЪЪ",page,GREY_B);
             printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
             while(TxRunRs || TxRunLcd);
-            Nop();
-//''''''''''      
-        if(page == 13){
-        // выводим состояние ИП1
+            // выводим состояние ИП1 или дымовой камеры
             while(TxRunRs || TxRunLcd);
             sprintf(LcdBufferData,"page%u.t2.pic=56ЪЪЪ",page); //значек ошибки
             printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
             while(TxRunRs || TxRunLcd);
             sprintf(LcdBufferData,"page%u.t9.txt=\"Нет данных\"ЪЪЪ",page);
             printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
+//''''''''''      
+        if(page == 13){
         // выводим состояние ИП2
             while(TxRunRs || TxRunLcd);
             sprintf(LcdBufferData,"page%u.t3.pic=56ЪЪЪ",page); //значек ошибки
@@ -1631,14 +1634,14 @@ void PrintStatusBosNew(unsigned char page,unsigned int index) {
             while(TxRunRs || TxRunLcd);
             sprintf(LcdBufferData,"page%u.t8.txt=\"Нет данных\"ЪЪЪ",page);
             printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
+            // выводим состояние ИП1 или дымовой камеры       
+            while(TxRunRs || TxRunLcd);
+            sprintf(LcdBufferData,"page%u.t2.pic=56ЪЪЪ",page); //значек ошибки
+            printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
+            while(TxRunRs || TxRunLcd);
+            sprintf(LcdBufferData,"page%u.t9.txt=\"Нет данных\"ЪЪЪ",page);
+            printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
             if(page == 13){
-        // выводим состояние ИП1        
-                while(TxRunRs || TxRunLcd);
-                sprintf(LcdBufferData,"page%u.t2.pic=56ЪЪЪ",page); //значек ошибки
-                printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
-                while(TxRunRs || TxRunLcd);
-                sprintf(LcdBufferData,"page%u.t9.txt=\"Нет данных\"ЪЪЪ",page);
-                printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
         // выводим состояние ИП2
                 while(TxRunRs || TxRunLcd);
                 sprintf(LcdBufferData,"page%u.t3.pic=56ЪЪЪ",page); //значек ошибки
@@ -1702,6 +1705,24 @@ void PrintStatusBosNew(unsigned char page,unsigned int index) {
                     printf("%s",LcdBufferData);
                     while(TxRunRs || TxRunLcd);
                     sprintf(LcdBufferData,"page%u.t8.txt=\"Основное\"ЪЪЪ",page);
+                    printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
+                }
+            }
+            if(page == 20){
+                // описание дымовой камеры
+                if (StatusBos[index].StatusLoopRT0) {
+                    while(TxRunRs || TxRunLcd);
+                    sprintf(LcdBufferData,"page%u.t2.pic=56ЪЪЪ",page); //значек ошибки
+                    printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
+                    while(TxRunRs || TxRunLcd);
+                    sprintf(LcdBufferData,"page%u.t9.txt=\"Дымовая камера\\rНЕИСПРАВНА\"ЪЪЪ",page);
+                    printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
+                } else {
+                    while(TxRunRs || TxRunLcd);
+                    sprintf(LcdBufferData,"page%u.t2.pic=57ЪЪЪ",page); //значек норма
+                    printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
+                    while(TxRunRs || TxRunLcd);
+                    sprintf(LcdBufferData,"page%u.t9.txt=\"Дымовая камера\\rИСПРАВНА\"ЪЪЪ",page);
                     printf("%s",LcdBufferData); //xprintf("%s\r",LcdBufferData);
                 }
             }

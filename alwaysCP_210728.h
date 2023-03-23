@@ -81,8 +81,6 @@ extern "C" {
     #define KEY_SOUND       PORTCbits.RC13  // схема 2.1  нога 44
     #define USB_EN          PORTGbits.RG3  // схема 2/1  нога 43
     #define IN_ERR_RIR      PORTBbits.RB2  // изм. 13.04.22
-//    #define ENTX485         LATBbits.LATB13 //схема 2.1 нога 36
-//    #define ENTX485         LATEbits.LATE7
     // изм. 06.04.22
     #define MaxNumberRequests 12 
     //+++++++++++++++++++++++++++++++++++++++++++++++

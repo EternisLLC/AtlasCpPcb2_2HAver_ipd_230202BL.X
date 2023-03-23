@@ -1,4 +1,7 @@
 #define BUFFER_SIZE 128
+
+// UART4 ТБВПФБЕФ У LCD
+
 typedef struct {
 	int		ri, wi, ct;			/* индекс чтения, индекс записи, счётчик данных */
 	unsigned char	buff[BUFFER_SIZE];	/* FIFO буфер */

@@ -31,7 +31,7 @@ extern "C" {
     #define	TRIS_ENTX485        _TRISB13
     #define	ENTX485_I           _LATF4      // RD8 âûõîä ôîðìèðîâàíèÿ ñèãíàëà ðàçðåøåíèÿ ïåðåäà÷è ïî RS485_I//---------29.11.21-----------
                                             // RD8 ×ÙÈÏÄ ÆÏÒÍÉÒÏ×ÁÎÉÑ ÓÉÇÎÁÌÁ ÒÁÚÒÅÛÅÎÉÑ ÐÅÒÅÄÁÞÉ ÐÏ RS485_I//---------29.11.21-----------
-    #define	TRIS_ENTX485_I      _TRISF4 //---------29.11.21-----------
+    #define	TRIS_ENTX485_ISO      _TRISF4 //---------29.11.21-----------
     #define _USE_XFUNC_OUT	1	/* 1: Use output functions */
     #define	_CR_CRLF		1	/* 1: Convert \n ==> \r\n in the output char */
     #define _USE_XFUNC_IN	1	/* 1: Use input function */

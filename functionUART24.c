@@ -8,6 +8,8 @@
 #include    "FunctionUART24.h"
 
 
+// UART4 работает с LCD
+
 #define BUFFER_SIZE 128
 
 #define _DI()		__asm__ volatile("disi #0x3FFF")

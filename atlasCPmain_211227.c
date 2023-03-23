@@ -74,7 +74,7 @@ int main(void) {
     Interval._CheckStatusBU = 1;
     WaitingScreen = 0;
     while(1){
-        while(CurrentScreen > 9 && CurrentScreen != 15){
+        while(CurrentScreen > 9 && CurrentScreen != 15 && CurrentScreen != 255){
 
 //            if(ScreenLast != CurrentScreen){
 //                xprintf("%u->%u dir %u\r",ScreenLast,CurrentScreen,SelectedDirection);
